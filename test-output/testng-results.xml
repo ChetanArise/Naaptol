@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-12-06T13:39:56 IST" name="Default suite" finished-at="2024-12-06T13:40:30 IST" duration-ms="33380">
+    <groups>
+    </groups>
+    <test started-at="2024-12-06T13:39:56 IST" name="Default test" finished-at="2024-12-06T13:40:30 IST" duration-ms="33380">
+      <class name="test.NaaptolCartTest">
+        <test-method is-config="true" signature="LaunchApplication()[pri:0, instance:test.NaaptolCartTest@2f4948e4]" started-at="2024-12-06T13:39:57 IST" name="LaunchApplication" finished-at="2024-12-06T13:40:23 IST" duration-ms="25636" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LaunchApplication -->
+        <test-method signature="VerifyAddProductToCartUsingQuickView()[pri:0, instance:test.NaaptolCartTest@2f4948e4]" started-at="2024-12-06T13:40:23 IST" name="VerifyAddProductToCartUsingQuickView" finished-at="2024-12-06T13:40:30 IST" duration-ms="6896" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddProductToCartUsingQuickView -->
+      </class> <!-- test.NaaptolCartTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
