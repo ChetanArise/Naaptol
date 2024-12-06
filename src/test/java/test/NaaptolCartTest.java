@@ -108,7 +108,7 @@ public class NaaptolCartTest extends BaseTest
 		naaptolHomePage.ClickOnQuickview(1);
 		naaptolQuickView.ClickOnAddToCart();
 		Thread.sleep(2000);
-		int c1=naaptolCartPage.GetCartProductListCount();//2
+		int c1=naaptolCartPage.GetCartProductListCount();//Two-2
 		System.out.println(c1);
 		Thread.sleep(2000);
 		naaptolCartPage.ClickOnRemove(0);
