@@ -1,5 +1,6 @@
 package test;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -7,23 +8,23 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import pojo.browser;
+import pojo.Browser;
 import pom.NaaptolCartPage;
 import pom.NaaptolHomePage;
 import pom.ProductDetailPage;
 @Listeners (test.Listeners.class)
 public class ProductDetailTest extends BaseTest
 {
-	 private WebDriver driver;
-
 	@BeforeMethod
-	 public void LaunchApplication()
+	 public void LaunchApplication() 
 	 {
-	  driver =browser.openbrowser();
+	  driver =Browser.openbrowser();
 	 }
-	@Test
+	 
+	@Test (priority =1)
 	public void VerifyAddToCartUsingProductDetailPage()
 	{
 		test=reports.createTest("VerifyAddToCartUsingProductDetailPage");

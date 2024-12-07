@@ -13,7 +13,7 @@ public class Screenshot
 	public static void clickscreenshot(WebDriver driver,String filename) throws IOException
 	{
 		File source =((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		File destination = new File ("E:\\QA Batch\\Naaptol\\Screenshot\\"+filename+".png");
+		File destination = new File ("E:\\QA Batch\\Naaptol_Chetan\\Screenshot\\"+filename+".png");
 		FileHandler.copy(source, destination);
 		
 	}

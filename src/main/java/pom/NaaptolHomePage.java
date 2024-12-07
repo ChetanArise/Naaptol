@@ -83,7 +83,8 @@ public class NaaptolHomePage extends RemoveComma
 	{
 	 return ProductName.getText();
 	}
-    public void MouseHoverOnProduct(WebDriver driver,int index) {
+    public void MouseHoverOnProduct(WebDriver driver,int index) 
+    {
 		Actions act = new Actions(driver);
 		act.moveToElement(ProductNameList.get(index));
 		act.perform();

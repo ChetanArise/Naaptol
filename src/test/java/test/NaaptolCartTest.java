@@ -2,6 +2,7 @@ package test;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -12,13 +13,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.github.dockerjava.api.model.Driver;
 
-import pojo.browser;
+import pojo.Browser;
 import pom.NaaptolCartPage;
 import pom.NaaptolHomePage;
 import pom.NaaptolQuickView;
@@ -27,12 +30,14 @@ import pom.RemoveComma;
 @Listeners (test.Listeners.class)
 public class NaaptolCartTest extends BaseTest
 {
+	 
 	 @BeforeMethod
-	 public void LaunchApplication()
+	 public void LaunchApplication() 
 	 {
-	  driver =browser.openbrowser();
+	  driver =Browser.openbrowser();
 	 }
-	@Test
+
+	@Test (priority = 1)
 	public void VerifyAddProductToCartUsingQuickView()
 	{
 		test=reports.createTest("VerifyAddProductToCartUsingQuickView");
@@ -53,7 +58,7 @@ public class NaaptolCartTest extends BaseTest
 		 Assert.assertEquals(cpn,qpn);
 		 Assert.assertEquals(cpp,qpp); 
 	}
-	@Test
+	@Test (priority = 2)
 	public void VerifyAddingMultipleProductToCart() 
 	{
 		test=reports.createTest("VerifyAddingMultipleProductToCart");
@@ -88,7 +93,7 @@ public class NaaptolCartTest extends BaseTest
 		Assert.assertEquals(cpp1,hpp1);
 		Assert.assertEquals(cpp2,hpp2);
 	}
-	@Test
+	@Test (priority = 3)
 	public void VerifyRemovingProductFromProduct() throws StaleElementReferenceException,InterruptedException
 	{
 		test=reports.createTest("VerifyRemovingProductFromProduct");
@@ -108,7 +113,7 @@ public class NaaptolCartTest extends BaseTest
 		naaptolHomePage.ClickOnQuickview(1);
 		naaptolQuickView.ClickOnAddToCart();
 		Thread.sleep(2000);
-		int c1=naaptolCartPage.GetCartProductListCount();//Two-2
+		int c1=naaptolCartPage.GetCartProductListCount();
 		System.out.println(c1);
 		Thread.sleep(2000);
 		naaptolCartPage.ClickOnRemove(0);
@@ -122,10 +127,10 @@ public class NaaptolCartTest extends BaseTest
 		int c2=naaptolCartPage.GetCartProductListCount();
 		System.out.println(c2);
 	    
-		Assert.assertNotSame(c1,c2);
-			
+		Assert.assertNotSame(c1,c2);	
 	}
-	@Test
+	
+	@Test (priority = 4)
 	public void VerifyOnChangingProductQuantityCorrectAmountIsDisplayed() throws InterruptedException
 	{
 		test=reports.createTest("VerifyOnChangingProductQuantityCorrectAmountIsDisplayed");
@@ -167,7 +172,7 @@ public class NaaptolCartTest extends BaseTest
 		naaptolQuickView.ClickOnClose();
 		
 	}
-	@Test
+	@Test (priority = 5)
 	public void VerifyTotalAmountForMultipleProductInCart() throws InterruptedException
 	{
 		test=reports.createTest("VerifyTotalAmountForMultipleProductInCart");

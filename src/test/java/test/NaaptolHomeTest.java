@@ -1,6 +1,7 @@
 package test;
 
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
@@ -9,21 +10,23 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import pojo.browser;
+import pojo.Browser;
 import pom.NaaptolHomePage;
 import pom.NaaptolQuickView;
 import pom.ProductDetailPage;
 @Listeners (test.Listeners.class)
 public class NaaptolHomeTest extends BaseTest
 {
-	 @BeforeMethod
-	 public void LaunchApplication()
+	
+	@BeforeMethod
+	 public void LaunchApplication() 
 	 {
-	  driver =browser.openbrowser();
+	  driver =Browser.openbrowser();
 	 }
-	 @Test
+	 @Test (priority = 1)
 	 public void VerifyOnClickingShoppingCategories()
 	 {
 		 test=reports.createTest("VerifyOnClickingShoppingCategories");
@@ -31,7 +34,8 @@ public class NaaptolHomeTest extends BaseTest
 		 naaptolHomePage.VerifyShoppingCategories(driver);
 		 Assert.assertTrue(naaptolHomePage.ShoppingCategoryListDisplayed());
 	 }
-	 @Test
+	 
+	 @Test (priority = 2)
 	 public void VerifyProductDetailsInQuickView()
 	 {
 		 test=reports.createTest("VerifyProductDetailsInQuickView");
@@ -53,7 +57,8 @@ public class NaaptolHomeTest extends BaseTest
 		 Assert.assertEquals(qpp,hpp);
 		 
 	 }
-	 @Test
+	 
+	 @Test (priority = 3)
 	 public void verifyProductDetailsInNewTab()
 	 {
 		 test=reports.createTest("verifyProductDetailsInNewTab");
@@ -67,6 +72,7 @@ public class NaaptolHomeTest extends BaseTest
 		 naaptolHomePage.ClickOnProduct();
 		 
 		 Set<String> s= driver.getWindowHandles();
+		 
 		 Iterator<String> i=s.iterator();
 		 
 		 while(i.hasNext())
@@ -84,10 +90,10 @@ public class NaaptolHomeTest extends BaseTest
 				Assert.assertEquals(hpp,dpp);
 				break;
 			 }
-		 }
-		 
+		 }	 
 	 }
-	 @Test
+	 
+	 @Test (priority = 4)
 	 public void VerifySortFeature() throws InterruptedException
 	 {
 		 test=reports.createTest("VerifySortFeature");
@@ -97,10 +103,6 @@ public class NaaptolHomeTest extends BaseTest
 		 naaptolHomePage.ClickOnSort();
 		 Thread.sleep(2000);
 		 naaptolHomePage.SelectSortOption("rated");
-		 
-		
+		 	
 	 }
-	 
-	 
-
 }
