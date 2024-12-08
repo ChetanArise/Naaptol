@@ -151,7 +151,7 @@ public class NaaptolCartTest extends BaseTest
 		double orderamount= cpp+csp;
 		Thread.sleep(2000);
 		double coa=naaptolCartPage.GetOrderAmount(1);
-		Assert.assertEquals(coa,orderamount);
+		Assert.assertEquals(coa,orderamount); //assertion check
 		
 	    naaptolCartPage.ClickOnQuantity(1);
 	    Actions act = new Actions(driver);
