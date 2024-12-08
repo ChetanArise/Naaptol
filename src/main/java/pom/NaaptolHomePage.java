@@ -15,7 +15,7 @@ public class NaaptolHomePage extends RemoveComma
 {
 	@FindBy(xpath = "//input [@id='header_search_text']")private WebElement SearchTab;
 	@FindBy(xpath = "(//a [@href='javascript:autoSuggestion.headerSearch()'])[2]")private WebElement SearchButton;
-	@FindBy (xpath ="//div[@class='item_title']") private List<WebElement> SearchedProducts;  
+	@FindBy (xpath ="//div[@class='item_title']") private List<WebElement> SearchedProducts; 
 	@FindBy (xpath="//a [text()='Log In / Register']") private WebElement Login;
 	@FindBy (xpath="//input [@placeholder='Enter mobile number']") private WebElement MobileNo;
 	@FindBy (xpath="//input [@value='Continue']") private WebElement Continue; 
@@ -53,6 +53,7 @@ public class NaaptolHomePage extends RemoveComma
 	{
 		return SearchedProducts.size();
 	}
+	
 	public void ClickOnLogin()
 	{
 		Login.click();
@@ -133,5 +134,9 @@ public class NaaptolHomePage extends RemoveComma
 	           System.out.println(SortOptions.get(i).getText()+" Option Selected");
 	        }
 		}
+	}
+	public String GetSortedProductName(int index)
+	{
+		return SearchedProducts.get(index).getText();
 	}
 }

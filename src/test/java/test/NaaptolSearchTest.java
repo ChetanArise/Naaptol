@@ -29,8 +29,6 @@ public class NaaptolSearchTest extends BaseTest
     	Assert.assertTrue(naaptolHomePage.ListOfSearchedProducts()>0);
     	Thread.sleep(5000);
     	Assert.assertTrue(driver.getTitle().contains("Mobile Phone"));
-    	System.out.println(naaptolHomePage.ListOfSearchedProducts());
-//    	Assert.assertTrue(naaptolHomePage.ListOfSearchedProducts()>0);
     }
     
     @Test (priority = 2)

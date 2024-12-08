@@ -102,7 +102,17 @@ public class NaaptolHomeTest extends BaseTest
 		 naaptolHomePage.ClickOnSearch();
 		 naaptolHomePage.ClickOnSort();
 		 Thread.sleep(2000);
+		 String hpn1 =naaptolHomePage.getProductname(0);
+		 String hpn2 =naaptolHomePage.getProductname(1);
+		 String hpn3 =naaptolHomePage.getProductname(2);
 		 naaptolHomePage.SelectSortOption("rated");
+		 String spn1=naaptolHomePage.GetSortedProductName(0);
+		 String spn2=naaptolHomePage.GetSortedProductName(1);
+		 String spn3=naaptolHomePage.GetSortedProductName(2);
+		 
+		 Assert.assertNotEquals(spn1,hpn1);
+		 Assert.assertNotEquals(spn2,hpn2);
+		 Assert.assertNotEquals(spn3,hpn3);
 		 	
 	 }
 }
