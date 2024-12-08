@@ -59,7 +59,7 @@ public class NaaptolCartTest extends BaseTest
 		 Assert.assertEquals(cpp,qpp); 
 	}
 	@Test (priority = 2)
-	public void VerifyAddingMultipleProductToCart() 
+	public void VerifyAddingMultipleProductToCart() throws InterruptedException
 	{
 		test=reports.createTest("VerifyAddingMultipleProductToCart");
 		NaaptolHomePage naaptolHomePage = new NaaptolHomePage(driver);
@@ -83,13 +83,14 @@ public class NaaptolCartTest extends BaseTest
 		naaptolHomePage.MouseHoverOnProduct(driver,2);
 		naaptolHomePage.ClickOnQuickview(2);
 		naaptolQuickView.ClickOnAddToCart();
+		Thread.sleep(2000);
 		String cpn2= naaptolCartPage.getProductname(0);
 		double cpp2= naaptolCartPage.GetProductPrice(1);
 		naaptolCartPage.ClickOnClose();
 		naaptolQuickView.ClickOnClose();
 		
 		Assert.assertEquals(cpn1,hpn1);
-		Assert.assertEquals(cpn2, hpn2); 
+		Assert.assertEquals(cpn2,hpn2); 
 		Assert.assertEquals(cpp1,hpp1);
 		Assert.assertEquals(cpp2,hpp2);
 	}
@@ -114,7 +115,6 @@ public class NaaptolCartTest extends BaseTest
 		naaptolQuickView.ClickOnAddToCart();
 		Thread.sleep(2000);
 		int c1=naaptolCartPage.GetCartProductListCount();
-		System.out.println(c1);
 		Thread.sleep(2000);
 		naaptolCartPage.ClickOnRemove(0);
 		Thread.sleep(2000);
@@ -125,7 +125,6 @@ public class NaaptolCartTest extends BaseTest
 		
 		Thread.sleep(2000);
 		int c2=naaptolCartPage.GetCartProductListCount();
-		System.out.println(c2);
 	    
 		Assert.assertNotSame(c1,c2);	
 	}

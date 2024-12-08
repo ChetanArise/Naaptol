@@ -19,14 +19,18 @@ public class NaaptolSearchTest extends BaseTest
 	  driver =Browser.openbrowser();
 	 }
     @Test (priority = 1)
-    public void VerifyIfUserIsAbleToPerformValidSearch()
+    public void VerifyIfUserIsAbleToPerformValidSearch() throws InterruptedException
     {
     	test=reports.createTest("VerifyIfUserIsAbleToPerformValidSearch");
     	NaaptolHomePage naaptolHomePage = new NaaptolHomePage(driver);
     	naaptolHomePage.SearchValidProduct("Mobile Phone");
     	naaptolHomePage.ClickOnSearch();
-    	Assert.assertTrue(driver.getTitle().contains("Mobile Phone"));
+    	Thread.sleep(5000);
     	Assert.assertTrue(naaptolHomePage.ListOfSearchedProducts()>0);
+    	Thread.sleep(5000);
+    	Assert.assertTrue(driver.getTitle().contains("Mobile Phone"));
+    	System.out.println(naaptolHomePage.ListOfSearchedProducts());
+//    	Assert.assertTrue(naaptolHomePage.ListOfSearchedProducts()>0);
     }
     
     @Test (priority = 2)
